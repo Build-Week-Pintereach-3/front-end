@@ -7,7 +7,7 @@ const PrivateRoute = ({component: Component, ...rest}) => {
       if(localStorage.getItem('token')) {
         return <Component {...props}/>
       }else {
-        return(<h1>Please Try Again, incorrect credentials</h1>)
+        return(<h1>Please try again. Incorrect credentials</h1>)
       }
     }}/>
   )
