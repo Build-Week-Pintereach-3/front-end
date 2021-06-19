@@ -1,4 +1,8 @@
 import React from 'react';
+import styled from 'styled-components';
+import { StyledButton, ButtonDiv, StyledBackground, StyledForm, FormDiv } from '../theme';
+
+
 
 export default function CreateUser(props) {
     const { change, errors, submit, values } = props
@@ -15,13 +19,13 @@ export default function CreateUser(props) {
     }
 
 
-
     return (
-        <div className='create-user-container'>
-            <form className='create-user-form'>
-                <h2>We're excited that you've decided to join us</h2>
-                <label htmlFor='firstName'>
-                    First Name:
+        <StyledBackground className='create-user-container'>
+            <StyledForm className='create-user-form'>
+                <h3>We're excited that you've decided to join us!</h3>
+                <FormDiv>
+                    <label htmlFor='firstName'>
+                    <p>First Name:</p>
                     <input
                         id='firstNameInput'
                         name='firstName'
@@ -32,7 +36,7 @@ export default function CreateUser(props) {
                     />
                 </label>
                 <label htmlFor='lastName'>
-                    Last Name:
+                    <p>Last Name:</p>
                     <input
                         id='lastNameInput'
                         name='lastName'
@@ -43,7 +47,7 @@ export default function CreateUser(props) {
                     />
                 </label>
                 <label htmlFor='email'>
-                    Email:
+                   <p>Email:</p>
                     <input 
                         id='emailInput'
                         name='email'
@@ -54,7 +58,7 @@ export default function CreateUser(props) {
                     />
                 </label>
                 <label htmlFor='username'>
-                    Username:
+                    <p>Username:</p>
                     <input
                         id='usernameInput'
                         name='username'
@@ -64,8 +68,8 @@ export default function CreateUser(props) {
                         value={values.username}
                     />
                 </label>
-                <label htmlfor='password'>
-                    Password:
+                <label htmlFor='password'>
+                    <p>Password:</p>
                     <input
                         id='password'
                         name='password'
@@ -83,8 +87,12 @@ export default function CreateUser(props) {
                         type='checkbox'
                     />
                 </label> */}
-
-                <button id='create-user-submit'>Join Pintereach</button>
+                </FormDiv>
+                
+                <ButtonDiv>
+                  <StyledButton id='create-user-submit'>Join Pintereach</StyledButton>  
+                </ButtonDiv>
+                
 
                 <div className="errors">
                     <div>{errors.firstName}</div>
@@ -93,8 +101,8 @@ export default function CreateUser(props) {
                     <div>{errors.password}</div>
                     <div>{errors.username}</div>
                 </div>
-            </form>
-        </div>
+            </StyledForm>
+        </StyledBackground>
     )
 }
 
