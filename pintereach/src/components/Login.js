@@ -49,7 +49,10 @@ export default function Login(props) {
                     </label>
                 </FormDiv>
                 <ButtonDiv>
-                    <StyledButton onClick={onSubmit} className='login-button'>Login</StyledButton>
+                    <StyledButton
+                        onClick={onSubmit}
+                        className='login-button'>Login
+                    </StyledButton>
                 </ButtonDiv>
                 
             </StyledForm>

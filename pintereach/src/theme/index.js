@@ -13,7 +13,7 @@ const StyledButton = styled.button`
     font-size: 16px;
     font-weight: 700;
     margin: 3px;
-
+  
     &:hover {
         background-color: ${(props) => props.theme.secondaryColor};
         color: white;
