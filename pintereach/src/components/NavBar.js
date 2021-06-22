@@ -30,7 +30,7 @@ export default function NavBar() {
                 </Link>
 
                 <Link to='/my-saved-articles'>
-                    <StyledButton className='login-button'>My Saved Articles</StyledButton>
+                    <StyledButton className='my-saved-articles-button'>My Saved Articles</StyledButton>
                 </Link>
             </ButtonDiv>
 

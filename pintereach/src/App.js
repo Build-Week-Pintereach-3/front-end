@@ -10,7 +10,7 @@ import LandingPage from './components/LandingPage';
 import CreateUser from './components/CreateUser';
 import Login from './components/Login'
 import MyFeed from './components/MyFeed';
-import NavBar from './components/NavBar';
+import MySavedArticles from './components/MySavedArticles';
 
 // first thing I need to do is think about creating the create-user-form
 const initialFormValues = {
@@ -135,6 +135,10 @@ const actuallyLoginUser = (loggedInUser) => {
 
       <Route exact path='/my-feed'>
         <MyFeed />
+      </Route>
+
+      <Route exact path='/my-saved-articles'>
+        <MySavedArticles/>
       </Route>
 
    </div>
