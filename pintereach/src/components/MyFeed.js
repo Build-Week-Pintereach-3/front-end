@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { StyledButton, ButtonDiv, StyledBackground } from '../theme/index'
+import NavBar from './NavBar'
 
 const StyledFeedContainer = styled.div`
     border: 5px solid green;
@@ -26,74 +27,78 @@ const StyledHeader = styled.div`
 
 export default function MyFeed() {
     return (
-        <StyledBackground>
-           <StyledHeader>
-                    User's Feed
-                </StyledHeader>
+
+        <div>
+            <NavBar></NavBar>
+            <StyledBackground>
+            <StyledHeader>
+                        User's Feed
+                    </StyledHeader>
 
 
-        <StyledFeedContainer>
-            <StyledFeedCard>
-                Hello
-                    <StyledButton>
-                        Save
-                    </StyledButton>
-                    <StyledButton>
-                         Hide
-                    </StyledButton>
-            </StyledFeedCard>
+            <StyledFeedContainer>
+                <StyledFeedCard>
+                    Hello
+                        <StyledButton>
+                            Save
+                        </StyledButton>
+                        <StyledButton>
+                            Hide
+                        </StyledButton>
+                </StyledFeedCard>
 
-            <StyledFeedCard>
-                Hello
-                    <StyledButton>
-                        Save
-                    </StyledButton>
-                    <StyledButton>
-                        Hide
-                    </StyledButton>
-            </StyledFeedCard>
+                <StyledFeedCard>
+                    Hello
+                        <StyledButton>
+                            Save
+                        </StyledButton>
+                        <StyledButton>
+                            Hide
+                        </StyledButton>
+                </StyledFeedCard>
 
-            <StyledFeedCard>
-                Hello
-                    <StyledButton>
-                        Save
-                    </StyledButton>
-                    <StyledButton>
-                        Hide
-                    </StyledButton>
-            </StyledFeedCard>
+                <StyledFeedCard>
+                    Hello
+                        <StyledButton>
+                            Save
+                        </StyledButton>
+                        <StyledButton>
+                            Hide
+                        </StyledButton>
+                </StyledFeedCard>
 
-            <StyledFeedCard>
-                Hello
-                    <StyledButton>
-                        Save
-                    </StyledButton>
-                    <StyledButton>
-                        Hide
-                    </StyledButton>
-            </StyledFeedCard>
+                <StyledFeedCard>
+                    Hello
+                        <StyledButton>
+                            Save
+                        </StyledButton>
+                        <StyledButton>
+                            Hide
+                        </StyledButton>
+                </StyledFeedCard>
 
-            <StyledFeedCard>
-                Hello
-                    <StyledButton>
-                        Save
-                    </StyledButton>
-                    <StyledButton>
-                        Hide
-                    </StyledButton>
-            </StyledFeedCard>
+                <StyledFeedCard>
+                    Hello
+                        <StyledButton>
+                            Save
+                        </StyledButton>
+                        <StyledButton>
+                            Hide
+                        </StyledButton>
+                </StyledFeedCard>
 
-            <StyledFeedCard>
-                Hello
-                    <StyledButton>
-                        Save
-                    </StyledButton>
-                    <StyledButton>
-                        Hide
-                    </StyledButton>
-            </StyledFeedCard>        
+                <StyledFeedCard>
+                    Hello
+                        <StyledButton>
+                            Save
+                        </StyledButton>
+                        <StyledButton>
+                            Hide
+                        </StyledButton>
+                </StyledFeedCard>        
 
-        </StyledFeedContainer>
-    </StyledBackground>
+            </StyledFeedContainer>
+        </StyledBackground>
+    </div>
     )
 }
