@@ -90,7 +90,10 @@ export default function CreateUser(props) {
                 </FormDiv>
                 
                 <ButtonDiv>
-                  <StyledButton id='create-user-submit'>Join Pintereach</StyledButton>  
+                    <StyledButton
+                        onClick={createUserSubmit}
+                        id='create-user-submit'> Join Pintereach
+                    </StyledButton>  
                 </ButtonDiv>
                 
 
