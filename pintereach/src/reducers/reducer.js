@@ -5,7 +5,18 @@ import {
 } from "../actions/actions";
 
 const initalState = {
-  null: null
+  initalFormValues: {
+    firstName: '',
+    lastName: '',
+    email: '',
+    password: '',
+    termsOfService: false,
+    username: ''
+  },
+  initalLoginValues: {
+    username: '',
+    password: ''
+  }
 }
 
 export const appReducer = (state = initalState, action) => {
