@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import { StyledButton, ButtonDiv, StyledBackground } from '../theme/index'
 import NavBar from './NavBar';
 import { axiosWithAuth } from '../axiosWithAuth/axiosWithAuth';
+import axios from 'axios';
 
 const StyledFeedContainer = styled.div`
     border: 5px solid green;
@@ -36,6 +37,14 @@ export default function MyFeed() {
     })
     .catch(err => console.log(err))
     },[])
+
+    console.log(articles)
+
+  const onClick = (e) => {
+    e.preventDefault();
+    // axios call for adding article
+  }
+
     return (
 
         <div>
@@ -55,6 +64,7 @@ export default function MyFeed() {
                         <StyledButton>
                             Hide
                         </StyledButton>
+                        {articles[0].title}
                 </StyledFeedCard>
 
                 <StyledFeedCard>
@@ -65,6 +75,7 @@ export default function MyFeed() {
                         <StyledButton>
                             Hide
                         </StyledButton>
+                        {articles[1].title}
                 </StyledFeedCard>
 
                 <StyledFeedCard>
@@ -75,6 +86,8 @@ export default function MyFeed() {
                         <StyledButton>
                             Hide
                         </StyledButton>
+                        {articles[2].title}
+
                 </StyledFeedCard>
 
                 <StyledFeedCard>
@@ -85,6 +98,7 @@ export default function MyFeed() {
                         <StyledButton>
                             Hide
                         </StyledButton>
+                        {articles[3].title}
                 </StyledFeedCard>
 
                 <StyledFeedCard>
@@ -95,6 +109,7 @@ export default function MyFeed() {
                         <StyledButton>
                             Hide
                         </StyledButton>
+                        {articles[4].title}
                 </StyledFeedCard>
 
                 <StyledFeedCard>
@@ -105,6 +120,7 @@ export default function MyFeed() {
                         <StyledButton>
                             Hide
                         </StyledButton>
+                        {articles[5].title}
                 </StyledFeedCard>        
 
             </StyledFeedContainer>

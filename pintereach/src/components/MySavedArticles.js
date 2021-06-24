@@ -25,6 +25,7 @@ const StyledHeader = styled.div`
     text-transform: uppercase    
 `
 // .get for specific articles
+// .delete for deletion of articles
 
 export default function MySavedArticles() {
     return (

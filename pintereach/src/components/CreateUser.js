@@ -8,30 +8,27 @@ import { StyledButton, ButtonDiv, StyledBackground, StyledForm, FormDiv } from '
 export default function CreateUser(props) {
     const { change, errors, values, setValues } = props
     let history = useHistory();
-    let newUser = props.values;
+
 
     const onChange = event => {
-        const {name, value} = event.target
-        // const valueToUse = (type === checkbox ? checked : value)
-        change(name, value)
+      setValues({
+        ...values,
+        [event.target.name]:event.target.value
+      })
     }
 
     const createUserSubmit = event => {
         event.preventDefault()
-      // const newUser = {
-      //   firstName: props.formValues.firstName.trim(),
-      //   lastName: props.formValues.lastName.trim(),
-      //   email: props.formValues.email.trim(),
-      //   password: props.formValues.password.trim(),
-      //   username: props.formValues.username.trim()
+      
+        console.log(values)
 
-        axios.post('https://pintereachunit4.herokuapp.com/api/auth/register', newUser)
+        axios.post('https://pintereachunit4.herokuapp.com/api/auth/register', values)
         .then(res => {
           setValues(res.data)
-          history.push('/my-feed')          
+          history.push('/login')          
         })
         .catch(err => console.log(err));      
-    }
+    } 
   
     return (
         <StyledBackground className='create-user-container'>
@@ -60,7 +57,7 @@ export default function CreateUser(props) {
                         value={values.lastName}
                     />
                 </label>
-                <label htmlFor='email'>
+                {/* <label htmlFor='email'>
                    <p>Email:</p>
                     <input 
                         id='emailInput'
@@ -70,7 +67,7 @@ export default function CreateUser(props) {
                         type='email'
                         value={values.email}
                     />
-                </label>
+                </label> */}
                 <label htmlFor='username'>
                     <p>Username:</p>
                     <input
@@ -93,7 +90,7 @@ export default function CreateUser(props) {
                         value={values.password}
                     />
                 </label>
-                {/* <label htmlFor='termsOfService'>
+               {/* <label htmlFor='termsOfService'>
                     Have you read and agreed to our terms of service?
                     <input
                         name='termsOfServiceCheck'
