@@ -9,14 +9,14 @@ const StyledFeedContainer = styled.div`
     flex-wrap: wrap;
     justify-content: center;
     padding: 10px;
-    width: 700px;
+    width: 80%;
 `
 
 const StyledFeedCard = styled.div`
     border: 5px solid magenta;
     text-align: center;
     margin: 15px;
-    width: 150px;
+    width: 20%;
     height: 150px
 `
 
@@ -25,14 +25,14 @@ const StyledHeader = styled.div`
 `
 
 
-export default function MyFeed() {
+export default function MySavedArticles() {
     return (
 
         <div>
             <NavBar></NavBar>
             <StyledBackground>
             <StyledHeader>
-                        User's Feed
+                        User's Saved Articles
                     </StyledHeader>
 
 
@@ -40,7 +40,7 @@ export default function MyFeed() {
                 <StyledFeedCard>
                     Hello
                         <StyledButton>
-                            Save
+                            Remove
                         </StyledButton>
                         <StyledButton>
                             Hide
@@ -50,7 +50,7 @@ export default function MyFeed() {
                 <StyledFeedCard>
                     Hello
                         <StyledButton>
-                            Save
+                            Remove
                         </StyledButton>
                         <StyledButton>
                             Hide
@@ -60,7 +60,7 @@ export default function MyFeed() {
                 <StyledFeedCard>
                     Hello
                         <StyledButton>
-                            Save
+                            Remove
                         </StyledButton>
                         <StyledButton>
                             Hide
@@ -70,7 +70,7 @@ export default function MyFeed() {
                 <StyledFeedCard>
                     Hello
                         <StyledButton>
-                            Save
+                            Remove
                         </StyledButton>
                         <StyledButton>
                             Hide
@@ -80,7 +80,7 @@ export default function MyFeed() {
                 <StyledFeedCard>
                     Hello
                         <StyledButton>
-                            Save
+                            Remove
                         </StyledButton>
                         <StyledButton>
                             Hide
@@ -90,7 +90,7 @@ export default function MyFeed() {
                 <StyledFeedCard>
                     Hello
                         <StyledButton>
-                            Save
+                            Remove
                         </StyledButton>
                         <StyledButton>
                             Hide

@@ -10,6 +10,7 @@ import LandingPage from './components/LandingPage';
 import CreateUser from './components/CreateUser';
 import Login from './components/Login'
 import MyFeed from './components/MyFeed';
+import MySavedArticles from './components/MySavedArticles';
 
 // first thing I need to do is think about creating the create-user-form
 const initialFormValues = {
@@ -112,28 +113,33 @@ const actuallyLoginUser = (loggedInUser) => {
 
   return (
    <div className='app-container'>
-    <Route exact path='/' component={LandingPage} />
+      
+      <Route exact path='/' component={LandingPage} />
 
-    <Route exact path='/create-user'>
-      <CreateUser
-        change={createUserChange}
-        errors={formErrors}
-        submit={createUserSubmit}
-        values={formValues}
-      />
-    </Route>
+      <Route exact path='/create-user'>
+        <CreateUser
+          change={createUserChange}
+          errors={formErrors}
+          submit={createUserSubmit}
+          values={formValues}
+        />
+      </Route>
 
-    <Route exact path='/login'>
-      <Login
-        change={loginChange}
-        login={loginButtonSubmit}
-        values={loginValues}
-      />
-    </Route>
+      <Route exact path='/login'>
+        <Login
+          change={loginChange}
+          login={loginButtonSubmit}
+          values={loginValues}
+        />
+      </Route>
 
-    <Route exact path='/my-feed'>
-      <MyFeed />
-    </Route>
+      <Route exact path='/my-feed'>
+        <MyFeed />
+      </Route>
+
+      <Route exact path='/my-saved-articles'>
+        <MySavedArticles/>
+      </Route>
 
    </div>
   )
