@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { StyledButton, ButtonDiv, StyledBackground } from '../theme/index'
+import { connect } from 'react-redux'
 
 const StyledFeedContainer = styled.div`
     border: 5px solid green;

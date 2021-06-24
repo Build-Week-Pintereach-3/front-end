@@ -10,6 +10,7 @@ import LandingPage from './components/LandingPage';
 import CreateUser from './components/CreateUser';
 import Login from './components/Login'
 import MyFeed from './components/MyFeed';
+import PrivateRoute from './components/PrivateRoute';
 
 // first thing I need to do is think about creating the create-user-form
 const initialFormValues = {
@@ -97,7 +98,7 @@ const loginButtonSubmit = () => {
     username: loginValues.username,
     password: loginValues.password
   }
-  history.push('my-feed')
+  history.push('/my-feed')
   actuallyLoginUser(loggedInUser)
 }
 
@@ -120,20 +121,18 @@ const actuallyLoginUser = (loggedInUser) => {
         errors={formErrors}
         submit={createUserSubmit}
         values={formValues}
+        setValues = {setFormValues}
       />
     </Route>
 
-    <Route exact path='/login'>
-      <Login
-        change={loginChange}
-        login={loginButtonSubmit}
-        values={loginValues}
-      />
+    <Route exact path='/login' render = {(props) => {
+      <Login {...props} setValues = {setLoginValues}/>      
+    }}>
     </Route>
 
-    <Route exact path='/my-feed'>
+    <PrivateRoute exact path='/my-feed'>
       <MyFeed />
-    </Route>
+    </PrivateRoute>
 
    </div>
   )

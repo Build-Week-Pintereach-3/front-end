@@ -1,11 +1,11 @@
-import React from 'react';
+import axios from 'axios';
+import React, {useEffect} from 'react';
 import styled from 'styled-components';
 import { StyledButton, ButtonDiv, StyledBackground, StyledForm, FormDiv } from '../theme';
 
 
-
 export default function CreateUser(props) {
-    const { change, errors, submit, values } = props
+    const { change, errors, submit, values, setValues } = props
 
     const onChange = event => {
         const {name, value} = event.target
@@ -18,6 +18,16 @@ export default function CreateUser(props) {
         submit()
     }
 
+    // useEffect(() => {
+    //   const registerNewUser = (newUser) => {
+    //     axios.post('https://pintereachunit4.herokuapp.com/api/auth/register', newUser)
+    //     .then(res => {
+    //       setValues(res.data)
+    //     })
+    //     .err(err => console.log(err))
+    //   }
+    //   registerNewUser()
+    // });
 
     return (
         <StyledBackground className='create-user-container'>
