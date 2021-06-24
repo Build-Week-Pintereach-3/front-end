@@ -1,8 +1,8 @@
-import React, {useState, useEffect} from 'react'
+import React,{useState,useEffect} from 'react';
+import { useParams } from 'react-router';
 import styled from 'styled-components'
 import { StyledButton, ButtonDiv, StyledBackground } from '../theme/index'
-import NavBar from './NavBar';
-import { axiosWithAuth } from '../axiosWithAuth/axiosWithAuth';
+import NavBar from './NavBar'
 
 const StyledFeedContainer = styled.div`
     border: 5px solid green;
@@ -10,39 +10,30 @@ const StyledFeedContainer = styled.div`
     flex-wrap: wrap;
     justify-content: center;
     padding: 10px;
-    width: 700px;
+    width: 80%;
 `
 
 const StyledFeedCard = styled.div`
     border: 5px solid magenta;
     text-align: center;
     margin: 15px;
-    width: 150px;
+    width: 20%;
     height: 150px
 `
 
 const StyledHeader = styled.div`
     text-transform: uppercase    
 `
+// .get for specific articles
 
-
-export default function MyFeed() {
-  const [articles, setArticles] = useState([])
-
-  useEffect(() => {
-    axiosWithAuth().get('/api/articles')
-    .then(res => {
-      setArticles(res.data)
-    })
-    .catch(err => console.log(err))
-    },[])
+export default function MySavedArticles() {
     return (
 
         <div>
             <NavBar></NavBar>
             <StyledBackground>
             <StyledHeader>
-                        User's Feed
+                        User's Saved Articles
                     </StyledHeader>
 
 
@@ -50,7 +41,7 @@ export default function MyFeed() {
                 <StyledFeedCard>
                     Hello
                         <StyledButton>
-                            Save
+                            Remove
                         </StyledButton>
                         <StyledButton>
                             Hide
@@ -60,7 +51,7 @@ export default function MyFeed() {
                 <StyledFeedCard>
                     Hello
                         <StyledButton>
-                            Save
+                            Remove
                         </StyledButton>
                         <StyledButton>
                             Hide
@@ -70,7 +61,7 @@ export default function MyFeed() {
                 <StyledFeedCard>
                     Hello
                         <StyledButton>
-                            Save
+                            Remove
                         </StyledButton>
                         <StyledButton>
                             Hide
@@ -80,7 +71,7 @@ export default function MyFeed() {
                 <StyledFeedCard>
                     Hello
                         <StyledButton>
-                            Save
+                            Remove
                         </StyledButton>
                         <StyledButton>
                             Hide
@@ -90,7 +81,7 @@ export default function MyFeed() {
                 <StyledFeedCard>
                     Hello
                         <StyledButton>
-                            Save
+                            Remove
                         </StyledButton>
                         <StyledButton>
                             Hide
@@ -100,7 +91,7 @@ export default function MyFeed() {
                 <StyledFeedCard>
                     Hello
                         <StyledButton>
-                            Save
+                            Remove
                         </StyledButton>
                         <StyledButton>
                             Hide

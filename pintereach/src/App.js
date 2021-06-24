@@ -1,9 +1,10 @@
 import './App.css';
 import {Link, Route, Switch, useHistory}from 'react-router-dom'
-import {useState} from 'react';
+import {useState,useEffect} from 'react';
 import createUserSchema from './validation/createUserSchema';
 import * as yup from 'yup'
 import axios from 'axios'
+import { axiosWithAuth } from './axiosWithAuth/axiosWithAuth';
 
 //components imports
 import LandingPage from './components/LandingPage';
@@ -11,6 +12,7 @@ import CreateUser from './components/CreateUser';
 import Login from './components/Login'
 import MyFeed from './components/MyFeed';
 import PrivateRoute from './components/PrivateRoute';
+import MySavedArticles from './components/MySavedArticles';
 
 // first thing I need to do is think about creating the create-user-form
 const initialFormValues = {
@@ -37,6 +39,7 @@ function App() {
 
 // CREATE USER STUFF
 
+
 // change handler for create user
 const createUserChange = (name, value) => {
   yup
@@ -60,56 +63,6 @@ const createUserChange = (name, value) => {
   })
 }
 
-// submit handler for create user
-const createUserSubmit = () => {
-  const newUser = {
-    firstName: formValues.firstName.trim(),
-    lastName: formValues.lastName.trim(),
-    email: formValues.email.trim(),
-    password: formValues.password.trim(),
-    username: formValues.username.trim()
-  }
-  postNewUser(newUser)
-  history.push('registration-complete')
-}
-
-// post new user to backend api
-const postNewUser = (newUser) => {
-  axios
-    .post('our api', newUser)
-    .catch(error => console.log('problem with axios post', error))
-}
-
-
-
-// LOGIN STUFF
-
-// change handler for login
-const loginChange = (name, value) => {
-  setLoginValues({
-    ...loginValues,
-    [name]: value
-  })
-}
-
-// submit handler for login
-const loginButtonSubmit = () => {
-  const loggedInUser = {
-    username: loginValues.username,
-    password: loginValues.password
-  }
-  history.push('/my-feed')
-  actuallyLoginUser(loggedInUser)
-}
-
-const actuallyLoginUser = (loggedInUser) => {
-  axios
-    .post('our api', loggedInUser)
-    .then(response => {
-      // some type of function to take people to user my-feed, where user can save articles and such (my-board)
-    })
-    .catch(error => console.log('problem with login axios post', error))
-} 
 
   return (
    <div className='app-container'>
@@ -119,20 +72,23 @@ const actuallyLoginUser = (loggedInUser) => {
       <CreateUser
         change={createUserChange}
         errors={formErrors}
-        submit={createUserSubmit}
         values={formValues}
         setValues = {setFormValues}
       />
     </Route>
 
     <Route exact path='/login' render = {(props) => {
-      <Login {...props} setValues = {setLoginValues}/>      
+      return <Login {...props} setValues = {setLoginValues}/>      
     }}>
     </Route>
 
     <PrivateRoute exact path='/my-feed'>
       <MyFeed />
     </PrivateRoute>
+
+      <Route exact path='/my-saved-articles'>
+        <MySavedArticles/>
+      </Route>
 
    </div>
   )
