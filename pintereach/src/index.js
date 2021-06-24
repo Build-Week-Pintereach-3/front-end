@@ -7,12 +7,12 @@ import { ThemeProvider } from 'styled-components'
 import ThemeObject from './theme';
 
 
-
 ReactDOM.render(
-  <ThemeProvider theme={ThemeObject}>
-    <Router>
-      <App />
-    </Router>
-  </ThemeProvider>,
+
+    <ThemeProvider theme={ThemeObject}>
+      <Router>
+        <App />
+      </Router>
+    </ThemeProvider>    ,
   document.getElementById('root')
 );

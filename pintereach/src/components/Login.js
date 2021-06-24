@@ -1,20 +1,32 @@
 import React from 'react'
 import styled from 'styled-components'
 import { StyledButton, ButtonDiv, StyledBackground, StyledForm, FormDiv } from '../theme'
-
+import { axiosWithAuth } from '../axiosWithAuth/axiosWithAuth'
+import { useHistory } from 'react-router-dom';
 
 
 export default function Login(props) {
-    const {change, login, values} = props
+    // const {change, login, values} = props
+    let history = useHistory();
 
     const onChange = event => {
-        const {name, value} = event.target
-        change(name, value)
+        props.setValues({
+          initialLoginValues: {
+            ...props.initialLoginValues,
+            [event.target.name]: event.target.value
+          }
+        })
     }
 
     const onSubmit = event => {
         event.preventDefault()
-        login()
+        axiosWithAuth().post('/api/auth/login', props.loginValues)
+        .then(res => {
+          console.log(res)
+          localStorage.setItem('token', res.data.payload)
+          history.push('/my-feed')
+        })
+        .catch(err => console.log(err))
     }
 
     return (
@@ -33,7 +45,7 @@ export default function Login(props) {
                             onChange={onChange}
                             placeholder='Username must be between 4 and 15 characters'
                             type='text'
-                            value={values.username}
+                            value={props.username}
                         />
                     </label>
                     <label htmlFor='password'>
@@ -44,7 +56,7 @@ export default function Login(props) {
                             onChange={onChange}
                             placeholder='Password must be between 6 and 20 characters'
                             type='password'
-                            value={values.password}
+                            value={props.password}
                         />
                     </label>
                 </FormDiv>

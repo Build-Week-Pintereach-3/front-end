@@ -1,11 +1,22 @@
 import { 
   SAVE_ARTICLE, 
-  EDIT_ARTICLE, 
+  EDIT_ARTICLE_LIST, 
   DELETE_ARTICLE 
 } from "../actions/actions";
 
 const initalState = {
-  null: null
+  initalFormValues: {
+    firstName: '',
+    lastName: '',
+    email: '',
+    password: '',
+    termsOfService: false,
+    username: ''
+  },
+  initalLoginValues: {
+    username: '',
+    password: ''
+  }
 }
 
 export const appReducer = (state = initalState, action) => {
@@ -15,7 +26,7 @@ export const appReducer = (state = initalState, action) => {
         ...state,
         save: action.payload
       }
-    case EDIT_ARTICLE: 
+    case EDIT_ARTICLE_LIST: 
       return {
         ...state,
         edit: false //change later

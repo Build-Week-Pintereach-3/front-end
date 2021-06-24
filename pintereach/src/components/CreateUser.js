@@ -1,11 +1,14 @@
-import React from 'react';
+import axios from 'axios';
+import React, {useEffect} from 'react';
 import styled from 'styled-components';
+import { useHistory } from 'react-router-dom';
 import { StyledButton, ButtonDiv, StyledBackground, StyledForm, FormDiv } from '../theme';
 
 
-
 export default function CreateUser(props) {
-    const { change, errors, submit, values } = props
+    const { change, errors, values, setValues } = props
+    let history = useHistory();
+    let newUser = props.values;
 
     const onChange = event => {
         const {name, value} = event.target
@@ -15,10 +18,21 @@ export default function CreateUser(props) {
 
     const createUserSubmit = event => {
         event.preventDefault()
-        submit()
+      // const newUser = {
+      //   firstName: props.formValues.firstName.trim(),
+      //   lastName: props.formValues.lastName.trim(),
+      //   email: props.formValues.email.trim(),
+      //   password: props.formValues.password.trim(),
+      //   username: props.formValues.username.trim()
+
+        axios.post('https://pintereachunit4.herokuapp.com/api/auth/register', newUser)
+        .then(res => {
+          setValues(res.data)
+          history.push('/my-feed')          
+        })
+        .catch(err => console.log(err));      
     }
-
-
+  
     return (
         <StyledBackground className='create-user-container'>
             <StyledForm className='create-user-form'>
@@ -106,6 +120,5 @@ export default function CreateUser(props) {
                 </div>
             </StyledForm>
         </StyledBackground>
-    )
+  )
 }
-

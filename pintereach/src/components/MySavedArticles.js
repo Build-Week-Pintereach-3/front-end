@@ -1,4 +1,5 @@
-import React from 'react'
+import React,{useState,useEffect} from 'react';
+import { useParams } from 'react-router';
 import styled from 'styled-components'
 import { StyledButton, ButtonDiv, StyledBackground } from '../theme/index'
 import NavBar from './NavBar'
@@ -23,7 +24,7 @@ const StyledFeedCard = styled.div`
 const StyledHeader = styled.div`
     text-transform: uppercase    
 `
-
+// .get for specific articles
 
 export default function MySavedArticles() {
     return (

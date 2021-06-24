@@ -1,7 +1,8 @@
-import React from 'react'
+import React, {useState, useEffect} from 'react'
 import styled from 'styled-components'
 import { StyledButton, ButtonDiv, StyledBackground } from '../theme/index'
-import NavBar from './NavBar'
+import NavBar from './NavBar';
+import { axiosWithAuth } from '../axiosWithAuth/axiosWithAuth';
 
 const StyledFeedContainer = styled.div`
     border: 5px solid green;
@@ -26,6 +27,15 @@ const StyledHeader = styled.div`
 
 
 export default function MyFeed() {
+  const [articles, setArticles] = useState([])
+
+  useEffect(() => {
+    axiosWithAuth().get('/api/articles')
+    .then(res => {
+      setArticles(res.data)
+    })
+    .catch(err => console.log(err))
+    },[])
     return (
 
         <div>
