@@ -20,7 +20,7 @@ export default function CreateUser(props) {
     const createUserSubmit = event => {
         event.preventDefault()
       
-        console.log(values)
+        // console.log(values)
 
         axios.post('https://pintereachunit4.herokuapp.com/api/auth/register', values)
         .then(res => {
