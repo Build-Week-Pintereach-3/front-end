@@ -35,6 +35,7 @@ function App() {
   const [formValues, setFormValues] = useState(initialFormValues);
   const [formErrors, setFormErrors] = useState([]);
   const [loginValues, setLoginValues] = useState(initialLoginValues);
+  const [articles, setArticles] = useState([]);
 
 // change handler for create user
 const createUserChange = (name, value) => {
@@ -82,8 +83,9 @@ const createUserChange = (name, value) => {
       <MyFeed />
     </PrivateRoute>
 
-    <Route exact path='/my-saved-articles'>
-      <MySavedArticles/>
+    <Route exact path='/my-saved-articles' render = {(props) => {
+      return <MySavedArticles {...props} articles = {articles} setArticles = {setArticles}/>
+    }}>
     </Route>
 
    </div>

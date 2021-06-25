@@ -27,12 +27,13 @@ const StyledHeader = styled.div`
 `
 
 
-export default function MyFeed() {
-  const [articles, setArticles] = useState([])
+export default function MyFeed(props) {
+  const {articles, setArticles} = props;
 
   useEffect(() => {
     axiosWithAuth().get('/api/articles')
     .then(res => {
+      console.log(res)
       setArticles(res.data)
     })
     .catch(err => console.log(err))
