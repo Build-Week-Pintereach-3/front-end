@@ -1,10 +1,8 @@
 import './App.css';
-import {Link, Route, Switch, useHistory}from 'react-router-dom'
-import {useState,useEffect} from 'react';
+import {Route}from 'react-router-dom'
+import {useState} from 'react';
 import createUserSchema from './validation/createUserSchema';
 import * as yup from 'yup'
-import axios from 'axios'
-import { axiosWithAuth } from './axiosWithAuth/axiosWithAuth';
 
 //components imports
 import LandingPage from './components/LandingPage';

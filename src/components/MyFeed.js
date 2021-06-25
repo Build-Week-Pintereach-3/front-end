@@ -1,6 +1,6 @@
-import React, {useState, useEffect} from 'react'
+import React, {useEffect} from 'react'
 import styled from 'styled-components'
-import { StyledButton, ButtonDiv, StyledBackground } from '../theme/index'
+import { StyledButton,StyledBackground } from '../theme/index'
 import NavBar from './NavBar';
 import { axiosWithAuth } from '../axiosWithAuth/axiosWithAuth';
 import axios from 'axios';
@@ -41,7 +41,7 @@ export default function MyFeed(props) {
 
     console.log(articles)
 
-  const onClick = (e) => {
+  const addArticle = (e) => {
     e.preventDefault();
     // axios call for adding article
   }
