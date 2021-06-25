@@ -7,20 +7,19 @@ import { useHistory } from 'react-router-dom';
 
 export default function Login(props) {
     // const {change, login, values} = props
+    const {loginValues, setValues} = props;
     let history = useHistory();
 
     const onChange = event => {
-        props.setValues({
-          initialLoginValues: {
-            ...props.initialLoginValues,
+        setValues({
+            ...loginValues,
             [event.target.name]: event.target.value
-          }
         })
     }
 
     const onSubmit = event => {
         event.preventDefault()
-        axiosWithAuth().post('/api/auth/login', props.loginValues)
+        axiosWithAuth().post('/api/auth/login', loginValues)
         .then(res => {
           console.log(res)
           localStorage.setItem('token', res.data.payload)

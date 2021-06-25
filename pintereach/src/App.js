@@ -18,9 +18,9 @@ import MySavedArticles from './components/MySavedArticles';
 const initialFormValues = {
   firstName: '',
   lastName: '',
-  email: '',
+  // email: '',
   password: '',
-  termsOfService: false,
+  // termsOfService: false,
   username: ''
   };
 
@@ -32,13 +32,10 @@ const initialLoginValues = {
 }
 
 function App() {
-  const  history = useHistory();
   const [formValues, setFormValues] = useState(initialFormValues);
   const [formErrors, setFormErrors] = useState([]);
-  const [loginValues, setLoginValues] = useState(initialLoginValues)
-
-// CREATE USER STUFF
-
+  const [loginValues, setLoginValues] = useState(initialLoginValues);
+  const [articles, setArticles] = useState([]);
 
 // change handler for create user
 const createUserChange = (name, value) => {
@@ -78,7 +75,7 @@ const createUserChange = (name, value) => {
     </Route>
 
     <Route exact path='/login' render = {(props) => {
-      return <Login {...props} setValues = {setLoginValues}/>      
+      return <Login {...props} loginValues = {loginValues} setValues = {setLoginValues}/>      
     }}>
     </Route>
 
@@ -86,9 +83,10 @@ const createUserChange = (name, value) => {
       <MyFeed />
     </PrivateRoute>
 
-      <Route exact path='/my-saved-articles'>
-        <MySavedArticles/>
-      </Route>
+    <Route exact path='/my-saved-articles' render = {(props) => {
+      return <MySavedArticles {...props} articles = {articles} setArticles = {setArticles}/>
+    }}>
+    </Route>
 
    </div>
   )
