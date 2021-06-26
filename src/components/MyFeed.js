@@ -1,4 +1,5 @@
 import React, {useEffect} from 'react'
+import { useParams, useHistory } from 'react-router';
 import styled from 'styled-components'
 import { StyledButton,StyledBackground } from '../theme/index'
 import NavBar from './NavBar';
@@ -29,6 +30,8 @@ const StyledHeader = styled.div`
 
 export default function MyFeed(props) {
   const {articles, setArticles} = props;
+  const {id} = useParams();
+  let history = useHistory();
 
   useEffect(() => {
     axiosWithAuth().get('/api/articles')
@@ -44,6 +47,12 @@ export default function MyFeed(props) {
   const addArticle = (e) => {
     e.preventDefault();
     // axios call for adding article
+    axios.get(`https://pintereachunit4.herokuapp.com/api/saved/${id}`)
+    .then(res => {
+      setArticles(res.data)
+      history.push('/my-saved-articles')
+    })
+    .catch(err => console.log(err))
   }
 
     return (
